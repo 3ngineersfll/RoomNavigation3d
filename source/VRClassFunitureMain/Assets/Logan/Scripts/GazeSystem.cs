@@ -3,15 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GazeSystem : MonoBehaviour {
+
+    public GameObject reticle;
+
+    public Color inactiveReticleColor = Color.grey;
+
+    public Color activeReticleColor = Color.green;
+
+    private GazeableObject currentGazeObject;
+
+    private GazeableObject currentSelectedObject;
+
+    private RaycastHit lastHit;
+
     // Use this for initialization
-    void Start()
-    {
+    void Start(){
+
+        SetReticleColor(inactiveReticleColor);
+
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update(){
+
         ProcessGaze();
+        CheckForInput(lastHit);
+
     }
 
     void OnDisable()
@@ -34,16 +51,51 @@ public class GazeSystem : MonoBehaviour {
 
             // Check if the object is interactable
 
-            // Check if the object is a new object (first time looking)
+            // Get the gameobject from the hitInfo
+            GameObject hitObj = hitInfo.collider.gameObject;
 
-            // Set the reticle color
+            // Get GazeableObject from the hit object
+            GazeableObject gazeObj = hitObj.GetComponent<GazeableObject>();
 
+            // Object has a GazeableObject component
+            if (gazeObj != null)
+            {
+
+                // Object we're looking at is different
+                if (gazeObj != currentGazeObject)
+                {
+
+                    ClearCurrentObject();
+                    currentGazeObject = gazeObj;
+                    currentGazeObject.OnGazeEnter(hitInfo);
+                    SetReticleColor(activeReticleColor);
+
+                }
+                else
+                {
+                    currentGazeObject.OnGaze(hitInfo);
+                }
+            }
+
+            else
+            {
+                ClearCurrentObject();
+            }
+
+            lastHit = hitInfo;
+
+        }
+        else
+        {
+            ClearCurrentObject();
         }
 
     }
 
     private void SetReticleColor(Color reticleColor)
     {
+        // Set the color of the reticle
+        reticle.GetComponent<Renderer>().material.SetColor("_Color", reticleColor);
 
     }
 
@@ -51,9 +103,37 @@ public class GazeSystem : MonoBehaviour {
     {
 
         // Check for down
+        if (Input.GetMouseButtonDown(0) && currentGazeObject != null)
+        {
+            currentSelectedObject = currentGazeObject;
+            currentSelectedObject.OnPress(hitInfo);
+        }
 
         // Check for hold
+        else if (Input.GetMouseButtonDown(0) && currentGazeObject != null)
+        {
+            currentSelectedObject.OnHold(hitInfo);
+        }
 
         // Check for release
+        else if (Input.GetMouseButtonDown(0) && currentGazeObject != null)
+        {
+            currentSelectedObject.OnRelease(hitInfo);
+            currentSelectedObject = null;
+        }
+
+    }
+
+    private void ClearCurrentObject()
+    {
+
+        if (currentGazeObject != null)
+        {
+
+            currentGazeObject.OnGazeExit();
+            SetReticleColor(inactiveReticleColor);
+            currentGazeObject = null;
+
+        }
     }
 }
