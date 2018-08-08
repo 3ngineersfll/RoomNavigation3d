@@ -95,7 +95,7 @@ public class GazeSystem : MonoBehaviour {
     private void SetReticleColor(Color reticleColor)
     {
         // Set the color of the reticle
-        reticle.GetComponent<Renderer>().material.SetColor("_Color", reticleColor);
+        reticle.GetComponent<Renderer>().material.SetColor("_Color", reticleColor); 
 
     }
 

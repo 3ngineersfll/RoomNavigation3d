@@ -1488,6 +1488,7 @@ GameObject:
   - component: {fileID: 1347063815}
   - component: {fileID: 1347063814}
   - component: {fileID: 1347063817}
+  - component: {fileID: 1347063818}
   m_Layer: 5
   m_Name: Teleport Button
   m_TagString: Untagged
@@ -1600,6 +1601,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 75, y: 20, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1347063818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1347063812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1910e80404ca9c64689b942352925483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1565107707
 Prefab:
   m_ObjectHideFlags: 0
@@ -1658,6 +1670,7 @@ GameObject:
   - component: {fileID: 1838569579}
   - component: {fileID: 1838569578}
   - component: {fileID: 1838569577}
+  - component: {fileID: 1838569581}
   m_Layer: 5
   m_Name: WalkButton
   m_TagString: Untagged
@@ -1770,6 +1783,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1838569575}
+--- !u!114 &1838569581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1838569575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1910e80404ca9c64689b942352925483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1952981739
 GameObject:
   m_ObjectHideFlags: 0
