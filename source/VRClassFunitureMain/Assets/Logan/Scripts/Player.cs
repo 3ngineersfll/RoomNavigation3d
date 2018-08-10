@@ -9,11 +9,24 @@ public enum InputMode
     WALK
 }
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+{
 
     public static Player instance;
 
     public InputMode activeMode = InputMode.NONE;
+
+    [SerializeField]
+    private float playerSpeed = 3.0f;
+
+    public GameObject leftWall;
+    public GameObject rightWall;
+
+    public GameObject forwardWall;
+    public GameObject backWall;
+
+    public GameObject ceiling;
+    public GameObject floor;
 
     private void Awake()
     {
@@ -26,12 +39,31 @@ public class Player : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        TryWalk();
+    }
+
+    public void TryWalk()
+    {
+        if (Input.GetMouseButton(0) && activeMode == InputMode.WALK)
+        {
+            Vector3 forward = Camera.main.transform.forward;
+
+            Vector3 newPosition = transform.position + forward * Time.deltaTime * playerSpeed;
+            
+            if (newPosition.x < rightWall.transform.position.x && newPosition.x > leftWall.transform.position.x &&
+                newPosition.y < ceiling.transform.position.y && newPosition.y > floor.transform.position.y &&
+                newPosition.z > backWall.transform.position.z && newPosition.z < forwardWall.transform.position.z)
+            {
+                transform.position = newPosition;
+            }              
+        }
+    }
 }
