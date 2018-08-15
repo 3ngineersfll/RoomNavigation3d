@@ -25,6 +25,7 @@ public class GazeableObject : MonoBehaviour
     public virtual void OnPress(RaycastHit hitInfo)
     {
         Debug.Log("Button pressed");
+
     }
 
 
@@ -59,11 +60,11 @@ public class GazeableObject : MonoBehaviour
                 break;
 
             case InputMode.ROTATE:
-                GazeTranslate(hitInfo);
+                GazeRotate(hitInfo);
                 break;
 
             case InputMode.SCALE:
-                GazeTranslate(hitInfo);
+                GazeScale(hitInfo);
                 break;
 
         }
@@ -73,7 +74,14 @@ public class GazeableObject : MonoBehaviour
     public virtual void GazeTranslate(RaycastHit hitInfo)
     {
 
-        // Move the object (position)
+        // Move the object (position) 
+
+        if (hitInfo.collider != null && hitInfo.collider.GetComponent<Floor>())
+        {
+
+            transform.position = hitInfo.point;
+
+        }
 
     }
 
