@@ -10,7 +10,7 @@ public class GazeableObject : MonoBehaviour
     public virtual void OnGazeEnter(RaycastHit hitInfo)
     {
         Debug.Log("Gaze entered on " + gameObject.name);
-    } 
+    }
 
     public virtual void OnGaze(RaycastHit hitInfo)
     {
@@ -28,7 +28,6 @@ public class GazeableObject : MonoBehaviour
 
     }
 
-
     public virtual void OnHold(RaycastHit hitInfo)
     {
         Debug.Log("Button hold");
@@ -39,7 +38,6 @@ public class GazeableObject : MonoBehaviour
         }
 
     }
-
 
     public virtual void OnRelease(RaycastHit hitInfo)
     {
@@ -54,7 +52,7 @@ public class GazeableObject : MonoBehaviour
         switch (Player.instance.activeMode)
         {
 
-            // Call differnet cases for active mode
+            // Call differnet case for active mode
             case InputMode.TRANSLATE:
                 GazeTranslate(hitInfo);
                 break;
@@ -74,7 +72,7 @@ public class GazeableObject : MonoBehaviour
     public virtual void GazeTranslate(RaycastHit hitInfo)
     {
 
-        // Move the object (position) 
+        // Move the object (position)
 
         if (hitInfo.collider != null && hitInfo.collider.GetComponent<Floor>())
         {
@@ -88,7 +86,7 @@ public class GazeableObject : MonoBehaviour
     public virtual void GazeRotate(RaycastHit hitInfo)
     {
 
-        // Change the object's orentation (rotation)
+        // Change the object's orientation (rotation)
 
     }
 
@@ -100,3 +98,5 @@ public class GazeableObject : MonoBehaviour
     }
 
 }
+
+
