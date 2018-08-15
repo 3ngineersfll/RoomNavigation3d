@@ -6,7 +6,9 @@ public enum InputMode
 {
     NONE,
     TELEPORT,
-    WALK
+    WALK,
+    FURNITURE
+
 }
 
 public class Player : MonoBehaviour
@@ -15,6 +17,8 @@ public class Player : MonoBehaviour
     public static Player instance;
 
     public InputMode activeMode = InputMode.NONE;
+
+    public Object activeFurniturePrefab;
 
     [SerializeField]
     private float playerSpeed = 3.0f;
