@@ -124,8 +124,9 @@ GameObject:
   - component: {fileID: 20461429}
   - component: {fileID: 20461428}
   - component: {fileID: 20461427}
+  - component: {fileID: 20461431}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -198,6 +199,17 @@ Transform:
   m_Father: {fileID: 946961378}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &20461431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 20461426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c42ab5ae2142d49800b3e78b209e2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,7 +332,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 70
+  field of view: 62.4
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -364,7 +376,7 @@ GameObject:
   - component: {fileID: 297621328}
   - component: {fileID: 297621327}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: forwardWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -607,8 +619,9 @@ GameObject:
   - component: {fileID: 486504566}
   - component: {fileID: 486504565}
   - component: {fileID: 486504564}
+  - component: {fileID: 486504568}
   m_Layer: 0
-  m_Name: Cube (3)
+  m_Name: leftWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -681,6 +694,17 @@ Transform:
   m_Father: {fileID: 946961378}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -90}
+--- !u!114 &486504568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 486504563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c42ab5ae2142d49800b3e78b209e2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &612960073
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,6 +713,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 612960074}
+  - component: {fileID: 612960075}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -711,6 +736,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &612960075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 612960073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf6ad586a5304fc478e7a0536d977bb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeMode: 0
+  playerSpeed: 1.5
+  leftWall: {fileID: 486504563}
+  rightWall: {fileID: 1152026604}
+  forwardWall: {fileID: 297621326}
+  backWall: {fileID: 1952981739}
+  ceiling: {fileID: 1068192611}
+  floor: {fileID: 20461426}
 --- !u!1 &614451171
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,12 +810,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 614451171}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4, y: 0, z: 4}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_Father: {fileID: 2062217681}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &697519487
 Prefab:
@@ -1061,7 +1105,7 @@ GameObject:
   - component: {fileID: 1068192613}
   - component: {fileID: 1068192612}
   m_Layer: 0
-  m_Name: Cube (5)
+  m_Name: ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1220,7 +1264,7 @@ GameObject:
   - component: {fileID: 1152026606}
   - component: {fileID: 1152026605}
   m_Layer: 0
-  m_Name: Cube (4)
+  m_Name: rightWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1392,6 +1436,7 @@ GameObject:
   - component: {fileID: 1199423574}
   - component: {fileID: 1199423573}
   - component: {fileID: 1199423572}
+  - component: {fileID: 1199423576}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1476,6 +1521,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1199423576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1199423571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50fce6bbd586aaf4685bb47e0e41fe68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentActiveButton: {fileID: 0}
+  unselectedColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &1347063812
 GameObject:
   m_ObjectHideFlags: 0
@@ -1609,9 +1668,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1347063812}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1910e80404ca9c64689b942352925483, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c9b90c687e3c9b40bca1cbb29d10c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mode: 1
 --- !u!1001 &1565107707
 Prefab:
   m_ObjectHideFlags: 0
@@ -1791,9 +1851,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1838569575}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1910e80404ca9c64689b942352925483, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c9b90c687e3c9b40bca1cbb29d10c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mode: 2
 --- !u!1 &1952981739
 GameObject:
   m_ObjectHideFlags: 0
@@ -1806,7 +1867,7 @@ GameObject:
   - component: {fileID: 1952981741}
   - component: {fileID: 1952981740}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: backWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1925,3 +1986,8 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6730e96e10b90864482fea8cbd8b0fbe, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &2062217681 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4363352516521762, guid: 6730e96e10b90864482fea8cbd8b0fbe,
+    type: 2}
+  m_PrefabInternal: {fileID: 2058589348}
