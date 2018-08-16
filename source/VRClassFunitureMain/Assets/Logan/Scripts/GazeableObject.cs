@@ -25,7 +25,6 @@ public class GazeableObject : MonoBehaviour
     public virtual void OnPress(RaycastHit hitInfo)
     {
         Debug.Log("Button pressed");
-
     }
 
     public virtual void OnHold(RaycastHit hitInfo)
@@ -36,7 +35,6 @@ public class GazeableObject : MonoBehaviour
         {
             GazeTransform(hitInfo);
         }
-
     }
 
     public virtual void OnRelease(RaycastHit hitInfo)
@@ -71,6 +69,7 @@ public class GazeableObject : MonoBehaviour
 
     public virtual void GazeTranslate(RaycastHit hitInfo)
     {
+        Debug.Log("Button Translate");
 
         // Move the object (position)
 

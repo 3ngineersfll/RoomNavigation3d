@@ -110,13 +110,13 @@ public class GazeSystem : MonoBehaviour {
         }
 
         // Check for hold
-        else if (Input.GetMouseButtonDown(0) && currentGazeObject != null)
+        else if (Input.GetMouseButton(0) && currentGazeObject != null)
         {
             currentSelectedObject.OnHold(hitInfo);
         }
 
         // Check for release
-        else if (Input.GetMouseButtonDown(0) && currentGazeObject != null)
+        else if (Input.GetMouseButtonUp(0) && currentGazeObject != null)
         {
             currentSelectedObject.OnRelease(hitInfo);
             currentSelectedObject = null;
