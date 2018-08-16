@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 33567126332212140}
   - component: {fileID: 23099550332078764}
   - component: {fileID: 65045845665556362}
-  - component: {fileID: 114565265976272808}
+  - component: {fileID: 114969907577772508}
   m_Layer: 0
   m_Name: lamp m
   m_TagString: Untagged
@@ -113,7 +113,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4338568241794984
 Transform:
   m_ObjectHideFlags: 1
@@ -134,7 +134,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1929416246333548}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 0, z: -2}
+  m_LocalPosition: {x: -1, y: 0, z: -0.5}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4544513534245714}
@@ -445,7 +445,7 @@ MonoBehaviour:
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
---- !u!114 &114565265976272808
+--- !u!114 &114969907577772508
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
