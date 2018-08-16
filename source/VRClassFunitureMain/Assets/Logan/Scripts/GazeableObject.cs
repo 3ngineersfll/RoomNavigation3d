@@ -7,6 +7,9 @@ public class GazeableObject : MonoBehaviour
 
     public bool isTransformable = false;
 
+    private int objectLayer;
+    private const int IGNORE_REYCAST_LAYER = 2;
+
     public virtual void OnGazeEnter(RaycastHit hitInfo)
     {
         Debug.Log("Gaze entered on " + gameObject.name);
@@ -25,6 +28,16 @@ public class GazeableObject : MonoBehaviour
     public virtual void OnPress(RaycastHit hitInfo)
     {
         Debug.Log("Button pressed");
+
+        if (isTransformable)
+        {
+
+            objectLayer = gameObject.layer;
+            
+            gameObject.layer = IGNORE_REYCAST_LAYER;
+
+        }
+
     }
 
     public virtual void OnHold(RaycastHit hitInfo)
@@ -40,6 +53,14 @@ public class GazeableObject : MonoBehaviour
     public virtual void OnRelease(RaycastHit hitInfo)
     {
         Debug.Log("Button release");
+
+        if (isTransformable)
+        {
+
+            gameObject.layer = objectLayer;
+
+        }
+
     }
 
     public virtual void GazeTransform(RaycastHit hitInfo)
