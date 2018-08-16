@@ -157,5 +157,19 @@ public class GazeableObject : MonoBehaviour
             scaleFactor = 1.0f + Mathf.Abs(rotationDelta.x) * scaleSpeed;
 
         }
+        else
+        {
+
+            if (rotationDelta.x < -180.0f)
+            {
+                rotationDelta.x = 360.0f + rotationDelta.x;
+            }
+
+            scaleFactor = Mathf.Max(0.1f, 1.0f - (Mathf.Abs(rotationDelta.x) * scaleSpeed) / 180.0f);
+
+        }
+
+        transform.localScale = scaleFactor * initialObjectScale;
+
     }
 }
