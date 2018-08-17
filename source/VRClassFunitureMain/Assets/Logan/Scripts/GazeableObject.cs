@@ -165,7 +165,7 @@ public class GazeableObject : MonoBehaviour
                 rotationDelta.x = 360.0f + rotationDelta.x;
             }
 
-            scaleFactor = Mathf.Max(0.1f, 1.0f - (Mathf.Abs(rotationDelta.x) * scaleSpeed) / 180.0f);
+            scaleFactor = Mathf.Max(0.1f, 1.0f - (Mathf.Abs(rotationDelta.x) * (1.0f/scaleSpeed)) / 180.0f);
 
         }
 
