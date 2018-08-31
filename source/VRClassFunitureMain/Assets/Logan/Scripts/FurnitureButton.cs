@@ -14,10 +14,13 @@ public class FurnitureButton : GazeableButton
         // Set player mode to place furniture
         Player.instance.activeMode = InputMode.FURNITURE;
 
+        Debug.Log("Players mode has been set to FURNITURE");
+
 
         // Set active furniture prefab to this prefab
         Player.instance.activeFurniturePrefab = prefab;
 
+        Debug.Log("Set active furniture prefab to this prefab");
 
     }
 }

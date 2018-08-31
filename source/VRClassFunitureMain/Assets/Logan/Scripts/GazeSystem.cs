@@ -21,6 +21,8 @@ public class GazeSystem : MonoBehaviour {
 
         SetReticleColor(inactiveReticleColor);
 
+        Debug.Log("Reticle color is inactive");
+
     }
 
     // Update is called once per frame
@@ -70,6 +72,7 @@ public class GazeSystem : MonoBehaviour {
                     currentGazeObject.OnGazeEnter(hitInfo);
                     SetReticleColor(activeReticleColor);
 
+                    Debug.Log("Reticle color is set to active");
                 }
                 else
                 {
@@ -133,6 +136,8 @@ public class GazeSystem : MonoBehaviour {
             currentGazeObject.OnGazeExit();
             SetReticleColor(inactiveReticleColor);
             currentGazeObject = null;
+
+            Debug.Log("Reticle color was set to inactive");
 
         }
     }

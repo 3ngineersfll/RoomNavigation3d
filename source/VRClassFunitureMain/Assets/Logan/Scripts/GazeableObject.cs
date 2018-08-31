@@ -44,10 +44,14 @@ public class GazeableObject : MonoBehaviour
     {
         Debug.Log("Gaze exited on" + gameObject.name);
 
-        if (isTransformable)
+        if (gameObject.name != "alpinist")
         {
-            GetComponentInChildren<cakeslice.Outline>().enabled = false;
+            if (isTransformable)
+            {
+                GetComponentInChildren<cakeslice.Outline>().enabled = false;
+            }
         }
+        
     }
 
     public virtual void OnPress(RaycastHit hitInfo)
