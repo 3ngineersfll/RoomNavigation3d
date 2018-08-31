@@ -15,9 +15,24 @@ public class GazeableObject : MonoBehaviour
 
     private Vector3 initialObjectScale;
 
+    private void Start()
+    {
+        //Disable this object's outline after initial setup.
+        if (isTransformable)
+        {
+            GetComponentInChildren<cakeslice.Outline>().enabled = false;
+        }
+    }
+
     public virtual void OnGazeEnter(RaycastHit hitInfo)
     {
         Debug.Log("Gaze entered on " + gameObject.name);
+
+        //If this object is transformable and the player in in transformation mode, enable outline;
+        if (isTransformable && (Player.instance.activeMode == InputMode.TRANSLATE || Player.instance.activeMode == InputMode.ROTATE || Player.instance.activeMode == InputMode.SCALE))
+        {
+            GetComponentInChildren<cakeslice.Outline>().enabled = true;
+        }  
     }
 
     public virtual void OnGaze(RaycastHit hitInfo)
@@ -28,6 +43,11 @@ public class GazeableObject : MonoBehaviour
     public virtual void OnGazeExit()
     {
         Debug.Log("Gaze exited on" + gameObject.name);
+
+        if (isTransformable)
+        {
+            GetComponentInChildren<cakeslice.Outline>().enabled = false;
+        }
     }
 
     public virtual void OnPress(RaycastHit hitInfo)

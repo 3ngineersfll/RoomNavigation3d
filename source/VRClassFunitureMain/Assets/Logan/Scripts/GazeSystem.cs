@@ -6,7 +6,7 @@ public class GazeSystem : MonoBehaviour {
 
     public GameObject reticle;
 
-    public Color inactiveReticleColor = Color.grey;
+    public Color inactiveReticleColor = Color.red;
 
     public Color activeReticleColor = Color.green;
 
